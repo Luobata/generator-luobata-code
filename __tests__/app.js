@@ -26,7 +26,7 @@ describe('generator-luobata-code:app', () => {
       'src/index.js',
       'test/index.js',
       'dist',
-      'assets',
+      'asserts',
       'build',
       'src',
       'index.html',
