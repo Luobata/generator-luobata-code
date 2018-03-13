@@ -5,8 +5,13 @@ var helpers = require('yeoman-test');
 
 describe('generator-luobata-code:app', () => {
   beforeAll(() => {
-    return helpers.run(path.join(__dirname, '../generators/app'))
-      .withPrompts({projectName: 'luobata', projectDesc: 'test', someAnswer: true});
+    return helpers
+      .run(path.join(__dirname, '../generators/app'))
+      .withPrompts({
+        projectName: 'luobata',
+        projectDesc: 'test',
+        someAnswer: true
+      });
   });
 
   it('creates files', () => {
@@ -16,6 +21,8 @@ describe('generator-luobata-code:app', () => {
       '.tern-project',
       '.eslintrc',
       'package.json',
+      'tsconfig.json',
+      '.editorconfig',
       'src/index.js',
       'test/index.js',
       'dist',
