@@ -8,9 +8,14 @@
         "email": "602975805@qq.com",
         "url": "luobata.com"
     },
-    "files": ["generators"],
+    "files": [
+        "generators"
+    ],
     "main": "generators/index.js",
-    "keywords": ["yeoman-generator", "yeoman-generator"],
+    "keywords": [
+        "yeoman-generator",
+        "yeoman-generator"
+    ],
     "devDependencies": {
         "coveralls": "^2.13.1",
         "eslint": "^4.1.0",
@@ -24,8 +29,8 @@
         "yeoman-test": "^1.6.0"
     },
     "dependencies": {
-        "yeoman-generator": "^1.0.0",
         "chalk": "^1.1.3",
+        "yeoman-generator": "^2.0.5",
         "yosay": "^2.0.0"
     },
     "jest": {
