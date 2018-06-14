@@ -138,7 +138,7 @@ module.exports = class extends Generator {
     this.fs.copy(this.templatePath('dev-client.js'), 'build/dev-client.js');
     this.fs.copy(this.templatePath('build.js'), 'build/build.js');
     this.fs.copy(
-      this.templatePath('webpack.config.build..js'),
+      this.templatePath('webpack.config.build.js'),
       'build/webpack.config.build.js',
     );
     this.fs.copy(this.templatePath('dev-server.js'), 'build/dev-server.js');
