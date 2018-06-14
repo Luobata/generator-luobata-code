@@ -65,6 +65,14 @@
         "webpack-hot-middleware": "2.13.2",
         "webpack-merge": "^4.1.0"
     },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Luobata/camel-data.git"
+    },
     "author": "luobata",
-    "license": "MIT"
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Luobata/camel-data/issues"
+    },
+    "homepage": "https://github.com/Luobata/camel-data#readme"
 }
