@@ -2,18 +2,18 @@
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
-const _ = require('lodash');
+// Const _ = require('lodash');
 const mkdirp = require('mkdirp');
 const path = require('path');
 
-function toCamelCase(string) {
-  if (string.indexOf('-') < 0 && string.indexOf('_') < 0) {
-    return string;
-  }
-  return string.replace(/[-_][^-_]/g, function (match) {
-    return match.charAt(1).toUpperCase();
-  });
-}
+// Function toCamelCase(string) {
+//   if (string.indexOf('-') < 0 && string.indexOf('_') < 0) {
+//     return string;
+//   }
+//   return string.replace(/[-_][^-_]/g, function (match) {
+//     return match.charAt(1).toUpperCase();
+//   });
+// }
 
 module.exports = class extends Generator {
   prompting() {
@@ -67,6 +67,8 @@ module.exports = class extends Generator {
   writing() {
     const pkg = this.fs.readJSON(this.templatePath('package_tpl.json'), {});
     pkg.name = this.props.projectName;
+    pkg.main = `dist/${this.props.projectName}.js`;
+    pkg.module = `dist/${this.props.projectName}.esm.js`;
     pkg.description = this.props.projectDesc;
     pkg.repository.url =
             'git+https://github.com/Luobata/' + this.props.projectName + '.git';
@@ -122,18 +124,12 @@ module.exports = class extends Generator {
     );
     this.fs.copy(this.templatePath('index.js'), 'src/index.js');
     this.fs.copy(this.templatePath('index.js'), 'test/index.js');
-    // This.fs.copy(
-    //   this.templatePath('rollup.config.js'),
-    //   'build/rollup.config.js'
-    // );
-    var readmeTpl = _.template(
-      this.fs.read(this.templatePath('rollup.config.js')),
-    );
+
+    var rollupTpl = this.fs.read(this.templatePath('rollup.config.js'));
+    var webpackTpl = this.fs.read(this.templatePath('webpack.config.js'));
     this.fs.write(
       this.destinationPath('build/rollup.config.js'),
-      readmeTpl({
-        projectName: toCamelCase(this.props.projectName)
-      }),
+      rollupTpl.replace(/bundle/g, this.props.projectName),
     );
     this.fs.copy(this.templatePath('dev-client.js'), 'build/dev-client.js');
     this.fs.copy(this.templatePath('build.js'), 'build/build.js');
@@ -142,9 +138,9 @@ module.exports = class extends Generator {
       'build/webpack.config.build.js',
     );
     this.fs.copy(this.templatePath('dev-server.js'), 'build/dev-server.js');
-    this.fs.copy(
-      this.templatePath('webpack.config.js'),
-      'build/webpack.config.js',
+    this.fs.write(
+      this.destinationPath('build/webpack.config.js'),
+      webpackTpl.replace(/bundle/g, this.props.projectName),
     );
   }
 

@@ -1,4 +1,3 @@
-import rollup from 'rollup';
 import babel from 'rollup-plugin-babel';
 import uglify from 'rollup-plugin-uglify';
 import alias from 'rollup-plugin-alias';
@@ -6,9 +5,6 @@ import commonjs from 'rollup-plugin-commonjs';
 import resolve from 'rollup-plugin-node-resolve';
 import path from 'path';
 import typescript from 'rollup-plugin-typescript2';
-
-const root = path.resolve(__dirname, './');
-const port = 10002;
 
 module.exports = {
     input: 'src/bundle.ts',
@@ -31,7 +27,9 @@ module.exports = {
         }),
         alias({
             ASSETS: path.resolve(__dirname, '../assets'),
+            Core: path.resolve(__dirname, '../src/core'),
+            Lib: path.resolve(__dirname, '../src/lib'),
+            '@': path.resolve(__dirname, '../src'),
         }),
     ],
-    // output format - 'amd', 'cjs', 'es6', 'iife', 'umd'
 };

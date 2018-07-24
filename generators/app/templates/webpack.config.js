@@ -22,8 +22,10 @@ module.exports = {
     resolve: {
         extensions: ['json', '.js', '.ts'],
         alias: {
-            LIB: path.resolve(__dirname, '../src/canvas/lib'),
-            ASSETS: path.resolve(__dirname, '../asserts'),
+            ASSETS: path.resolve(__dirname, '../assets'),
+            Core: path.resolve(__dirname, '../src/core'),
+            Lib: path.resolve(__dirname, '../src/lib'),
+            '@': path.resolve(__dirname, '../src'),
         },
     },
 
@@ -79,12 +81,4 @@ module.exports = {
             inject: true,
         }),
     ],
-
-    // devServer: {
-    //     contentBase: "./",
-    //     port: 8888,
-    //     colors: true,
-    //     historyApiFallback: true,
-    //     inline: true
-    // }
 };

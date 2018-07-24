@@ -3,16 +3,25 @@
         "outDir": "./dist/",
         "sourceMap": true,
         "noImplicitAny": true,
-        "module": "commonjs",
+        "module": "ES2015",
         "target": "es6",
         "jsx": "react",
         "allowSyntheticDefaultImports": true,
         "moduleResolution": "node",
         "baseUrl": "./",
         "paths": {
+            "ASSETS/*": [
+                "assets/*"
+            ],
+            "@/*": [
+                "src/*"
+            ],
+            "Core/*": [
+                "src/core/*"
+            ],
             "LIB/*": [
-                "src/canvas/lib/*"
-            ]
+                "src/lib/*"
+            ],
         },
         "lib": [
             "es2015",
