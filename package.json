@@ -8,10 +8,16 @@
         "email": "602975805@qq.com",
         "url": "luobata.com"
     },
-    "files": ["generators"],
+    "files": [
+        "generators"
+    ],
     "main": "generators/index.js",
-    "keywords": ["yeoman-generator", "yeoman-generator"],
+    "keywords": [
+        "yeoman-generator",
+        "yeoman-generator"
+    ],
     "devDependencies": {
+        "cryptiles": ">=4.1.2",
         "coveralls": "^2.13.1",
         "eslint": "^4.1.0",
         "eslint-config-xo-space": "^0.16.0",
