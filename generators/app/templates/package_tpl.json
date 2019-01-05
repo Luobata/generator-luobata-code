@@ -8,8 +8,7 @@
         "build": "node build/build.js",
         "build:esm": "rollup -c build/rollup.config.js && rm -rf .rpt2_cache",
         "dev:test": "node build/dev-server.js",
-        "test":
-            "cross-env NODE_ENV=test mocha --compilers js:babel-core/register test/test.js",
+        "test": "cross-env NODE_ENV=test mocha --compilers js:babel-core/register test/test.js",
         "tslint": "tslint -c tslint.json -r src/ -p ./tsconfig.json",
         "lint": "eslint --fix src/"
     },
@@ -62,7 +61,7 @@
         "url-loader": "^0.6.2",
         "webpack": "^3.6.0",
         "webpack-dev-middleware": "^1.12.2",
-        "webpack-dev-server": "^2.9.1",
+        "webpack-dev-server": "^3.1.11",
         "webpack-hot-middleware": "2.13.2",
         "webpack-merge": "^4.1.0"
     },
