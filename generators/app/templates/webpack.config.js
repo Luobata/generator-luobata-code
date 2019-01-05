@@ -19,6 +19,8 @@ module.exports = {
         filename: 'bundle.js',
     },
 
+    mode: 'development',
+
     resolve: {
         extensions: ['json', '.js', '.ts'],
         alias: {
@@ -30,7 +32,7 @@ module.exports = {
     },
 
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.(jpg|gif|png|svg)$/,
                 loader: 'url-loader',
